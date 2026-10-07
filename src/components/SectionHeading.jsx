@@ -7,13 +7,14 @@ export default function SectionHeading({
   align = 'center',
   light = false,
   className = '',
+  animate = true,
 }) {
   const isCentered = align === 'center';
 
   return (
     <div
       className={`mb-12 sm:mb-16 ${isCentered ? 'text-center mx-auto' : 'text-left'} ${className}`}
-      data-aos="fade-up"
+      {...(animate ? { 'data-aos': 'fade-up' } : {})}
     >
       {eyebrow && (
         <div

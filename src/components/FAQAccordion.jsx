@@ -4,30 +4,34 @@ import SectionHeading from './SectionHeading';
 import { FAQS, getGeneralBookingWhatsAppLink } from '../data/spaData';
 
 export default function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState(0);
+  // Allow questions to be expanded/collapsed independently without closing others
+  const [openItems, setOpenItems] = useState([0]);
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
+    setOpenItems((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    );
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-spa-charcoal relative overflow-hidden border-t border-spa-gold/15">
+    <section className="py-20 lg:py-28 bg-spa-charcoal relative border-t border-spa-gold/15">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           eyebrow="FREQUENTLY ASKED"
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about our services, booking process, and visiting our spa in Miyapur."
+          animate={false}
         />
 
         <div className="space-y-4">
           {FAQS.map((faq, index) => {
-            const isOpen = openIndex === index;
+            const isOpen = openItems.includes(index);
             return (
               <div
                 key={faq.id}
-                data-aos="fade-up"
-                data-aos-delay={index * 60}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-2xl border transition-colors duration-200 ${
                   isOpen
                     ? 'bg-spa-card/90 border-spa-gold/60 shadow-gold-glow'
                     : 'bg-spa-card/40 border-spa-gold/20 hover:border-spa-gold/40'
@@ -36,26 +40,38 @@ export default function FAQAccordion() {
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${faq.id}`}
                 >
                   <span className="font-serif text-lg sm:text-xl text-spa-cream font-normal">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full border border-spa-gold/40 flex items-center justify-center shrink-0 text-spa-gold transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-spa-gold text-spa-dark border-spa-gold' : 'bg-transparent'
+                    className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isOpen
+                        ? 'bg-spa-gold border-spa-gold rotate-180'
+                        : 'bg-transparent border-spa-gold/40'
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-colors duration-200 ${
+                        isOpen ? 'text-spa-dark' : 'text-spa-gold'
+                      }`}
+                    />
                   </div>
                 </button>
 
-                {isOpen && (
+                <div
+                  id={`faq-answer-${faq.id}`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
                   <div className="px-6 pb-6 pt-1 text-sm text-spa-cream-soft/80 leading-relaxed border-t border-spa-gold/10">
                     <p>{faq.answer}</p>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}
@@ -63,7 +79,6 @@ export default function FAQAccordion() {
 
         {/* Quick query helper */}
         <div
-          data-aos="fade-up"
           className="mt-12 p-6 rounded-2xl bg-spa-card/50 border border-spa-gold/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
         >
           <div className="flex items-center gap-3">
