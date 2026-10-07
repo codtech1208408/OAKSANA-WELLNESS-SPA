@@ -4,15 +4,11 @@ import SectionHeading from './SectionHeading';
 import { FAQS, getGeneralBookingWhatsAppLink } from '../data/spaData';
 
 export default function FAQAccordion() {
-  // Allow questions to be expanded/collapsed independently without closing others
-  const [openItems, setOpenItems] = useState([0]);
+  // Only one question can be open at a time
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
-    setOpenItems((prev) =>
-      prev.includes(index)
-        ? prev.filter((i) => i !== index)
-        : [...prev, index]
-    );
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -27,7 +23,7 @@ export default function FAQAccordion() {
 
         <div className="space-y-4">
           {FAQS.map((faq, index) => {
-            const isOpen = openItems.includes(index);
+            const isOpen = openIndex === index;
             return (
               <div
                 key={faq.id}

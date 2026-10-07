@@ -361,13 +361,19 @@ export default function Home() {
               <p className="text-spa-cream-soft/80 text-xs sm:text-sm font-light leading-relaxed">
                 From the moment you arrive, feel the stress melt away. Our serene environment, soothing aromas and luxurious treatments will transport you to a place of pure bliss.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-spa-gold to-spa-gold-light text-spa-dark font-bold text-xs uppercase tracking-wider shadow-gold-glow hover:brightness-110 active:scale-95 transition-all"
+                >
+                  <span>About Our Spa</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
                 <Link
                   to="/gallery"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-spa-gold to-spa-gold-light text-spa-dark font-bold text-xs uppercase tracking-wider shadow-gold-glow hover:brightness-110 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-spa-gold/50 text-spa-cream hover:text-spa-gold hover:border-spa-gold font-medium text-xs uppercase tracking-wider transition-all"
                 >
-                  <span>Explore Our Gallery</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Explore Gallery</span>
                 </Link>
               </div>
             </div>
