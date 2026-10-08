@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
+import SEOHead from './components/SEOHead';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -30,6 +31,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SEOHead />
       <div className="flex flex-col min-h-screen bg-spa-dark text-spa-cream-soft font-sans relative selection:bg-spa-gold selection:text-spa-dark pb-16 md:pb-0">
         {/* Sticky Header */}
         <Header />

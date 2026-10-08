@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, MessageSquare, Sparkles, ChevronRight } from 'lucide-react';
+import { MapPin, Phone, Clock, MessageSquare, Sparkles, ChevronRight, Search } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES, getGeneralBookingWhatsAppLink, getServiceBookingWhatsAppLink } from '../data/spaData';
+import SEOConsoleModal from './SEOConsoleModal';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isSeoModalOpen, setIsSeoModalOpen] = useState(false);
 
   return (
     <footer className="bg-spa-dark border-t border-spa-gold/20 text-spa-cream-soft relative overflow-hidden">
@@ -159,14 +161,44 @@ export default function Footer() {
           <p>
             &copy; {currentYear} {BUSINESS_INFO.name}. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-4 text-spa-cream-soft/70">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-spa-cream-soft/70">
             <span>Sri Mani Kalyan Arcade, Miyapur X Road</span>
             <span>•</span>
-            <span className="text-spa-gold">Hygiene & Privacy Assured</span>
+            <a 
+              href="/sitemap.xml" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-spa-gold transition-colors underline decoration-spa-gold/30 underline-offset-2"
+            >
+              XML Sitemap
+            </a>
+            <span>•</span>
+            <a 
+              href="/robots.txt" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-spa-gold transition-colors underline decoration-spa-gold/30 underline-offset-2"
+            >
+              Robots.txt
+            </a>
+            <span>•</span>
+            <button
+              onClick={() => setIsSeoModalOpen(true)}
+              className="inline-flex items-center gap-1 text-spa-gold hover:text-spa-gold-light hover:underline font-medium"
+            >
+              <Search className="w-3 h-3" />
+              <span>Google Console &amp; SEO</span>
+            </button>
           </div>
         </div>
 
       </div>
+
+      {/* Interactive SEO & Google Search Console Verification Modal */}
+      <SEOConsoleModal
+        isOpen={isSeoModalOpen}
+        onClose={() => setIsSeoModalOpen(false)}
+      />
     </footer>
   );
 }

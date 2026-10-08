@@ -68,6 +68,32 @@ npm run preview
 
 ---
 
+## 🔍 SEO & Google Search Console Integration
+
+Oaksana Wellness Spa includes an enterprise-grade SEO and search indexation suite:
+
+1. **Google Search Console**:
+   - Meta tag verification slot pre-configured in [index.html](file:///c:/Users/SANTHOSH/OneDrive/Desktop/OAKSANA%20WELLNESS%20SPA/index.html) (`<meta name="google-site-verification" content="..." />`).
+   - Dynamic credentials input via the on-site **Google Console & SEO** modal in the website footer.
+   - Or configure via `.env`: `VITE_GOOGLE_SITE_VERIFICATION="YOUR_TOKEN"`.
+
+2. **XML Sitemap**:
+   - Live at `/sitemap.xml` with priority weighting, change frequencies, and image metadata for all 5 core routes.
+   - Ready for one-click submission in Google Search Console under **Sitemaps** -> `sitemap.xml`.
+
+3. **Robots Directives**:
+   - Live at `/robots.txt` directing Googlebot & Bingbot to crawl all main pages and referencing the sitemap.
+
+4. **Schema.org Structured Data (JSON-LD)**:
+   - Rich `DaySpa` / `HealthAndBeautyBusiness` schema with address, operating hours, geolocation (Miyapur), pricing tier, and catalogue of all 7 therapies.
+   - `FAQPage` schema enabling expandable FAQ rich snippets in Google Search Results.
+   - `BreadcrumbList` schema for clear site hierarchy.
+
+5. **Local Hyderabad Geo-Targeting**:
+   - Tagged for `IN-TG`, `Hyderabad, Miyapur`, and exact coordinates.
+
+---
+
 ## 📍 Business Information
 
 * **Name**: Oaksana Wellness Spa

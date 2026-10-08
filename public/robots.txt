@@ -1,0 +1,22 @@
+# ==========================================
+# Robots.txt for Oaksana Wellness Spa
+# ==========================================
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*?*
+
+User-agent: Googlebot
+Allow: /
+Allow: /services
+Allow: /gallery
+Allow: /about
+Allow: /contact
+
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap for Search Engine Discovery
+Sitemap: https://oaksanawellness.com/sitemap.xml
