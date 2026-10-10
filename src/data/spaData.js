@@ -76,7 +76,7 @@ export const SERVICES = [
     price: "Coming Soon",
     duration: "60 / 90 Mins",
     isFeatured: true,
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/services/swedish-massage.png",
     benefits: [
       "Long gliding strokes that boost blood circulation",
       "Gently eases surface muscle tightness",
@@ -93,7 +93,7 @@ export const SERVICES = [
     price: "Coming Soon",
     duration: "60 / 90 / 120 Mins",
     isFeatured: true,
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/services/thai-massage.png",
     benefits: [
       "Improves natural body flexibility and range of motion",
       "Balances internal energy flow along meridian pathways",
@@ -110,7 +110,7 @@ export const SERVICES = [
     price: "Coming Soon",
     duration: "60 / 90 Mins",
     isFeatured: false,
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/services/balinese-massage.png",
     benefits: [
       "Harmonious combination of acupressure and soothing strokes",
       "Warm essential oil application for supple skin",
@@ -127,7 +127,7 @@ export const SERVICES = [
     price: "Coming Soon",
     duration: "60 / 90 Mins",
     isFeatured: false,
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/services/spearmint-oil-therapy.png",
     benefits: [
       "Natural cooling sensation that relieves fatigue",
       "Refreshing spearmint aroma sharpens mental clarity",
@@ -144,7 +144,7 @@ export const SERVICES = [
     price: "Coming Soon",
     duration: "60 / 90 / 120 Mins",
     isFeatured: false,
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/services/full-body-massage.png",
     benefits: [
       "Comprehensive treatment addressing every major muscle group",
       "Tailored pressure tailored to your personal comfort level",

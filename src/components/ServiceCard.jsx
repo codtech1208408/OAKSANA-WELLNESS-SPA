@@ -11,36 +11,40 @@ export default function ServiceCard({ service, index = 0 }) {
       data-aos-delay={(index % 4) * 100}
       className="group relative flex flex-col h-full bg-spa-card/90 rounded-2xl overflow-hidden border border-spa-gold/20 hover:border-spa-gold/60 transition-all duration-300 hover:shadow-gold-glow flex-1"
     >
-      {/* Service Image with Zoom & Dark Gradient */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-black/50">
+      {/* Service Image - Clean 4:3 view with object-top to ensure heads/faces are fully visible */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-black/40">
         <img
           src={service.image}
           alt={service.name}
           loading="lazy"
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-spa-card via-black/30 to-transparent" />
-
-        {/* Duration badge */}
-        {service.duration && (
-          <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-spa-gold/40 text-[11px] text-spa-gold font-medium tracking-wide">
-            <Clock className="w-3 h-3 text-spa-gold" />
-            <span>{service.duration}</span>
-          </div>
-        )}
-
-        {/* Featured Tag if applicable */}
-        {service.isFeatured && (
-          <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-spa-gold text-spa-dark text-[10px] font-bold tracking-widest uppercase shadow-sm">
-            <Sparkles className="w-2.5 h-2.5 fill-spa-dark" />
-            <span>Signature</span>
-          </div>
-        )}
       </div>
 
       {/* Card Content */}
       <div className="p-6 flex flex-col flex-grow justify-between">
         <div>
+          {/* Card Meta Badges - placed here so they do not obstruct therapist faces */}
+          <div className="flex items-center justify-between gap-2 mb-3">
+            {service.isFeatured ? (
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-spa-gold text-spa-dark text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                <Sparkles className="w-2.5 h-2.5 fill-spa-dark" />
+                <span>Signature</span>
+              </span>
+            ) : (
+              <span className="text-[10px] uppercase tracking-wider text-spa-gold/70 font-semibold">
+                Holistic Therapy
+              </span>
+            )}
+
+            {service.duration && (
+              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-spa-surface/90 border border-spa-gold/30 text-[11px] text-spa-gold font-medium tracking-wide">
+                <Clock className="w-3 h-3 text-spa-gold" />
+                <span>{service.duration}</span>
+              </div>
+            )}
+          </div>
+
           {/* Service Title */}
           <h3 className="font-serif text-2xl text-spa-cream group-hover:text-spa-gold transition-colors duration-200">
             {service.name}

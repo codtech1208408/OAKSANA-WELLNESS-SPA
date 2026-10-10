@@ -138,7 +138,7 @@ export default function Home() {
       {/* =========================================================================
           HERO SECTION (MATCHING REFERENCE IMAGE - COMPACT MOBILE BANNER)
           ========================================================================= */}
-      <section className="relative min-h-[440px] sm:min-h-[500px] md:min-h-[85vh] lg:min-h-screen flex items-center overflow-hidden bg-spa-dark">
+      <section className="relative mt-[72px] sm:mt-[88px] md:mt-[96px] min-h-[440px] sm:min-h-[500px] md:min-h-[calc(85vh-96px)] lg:min-h-[calc(100vh-96px)] flex items-center overflow-hidden bg-spa-dark">
         {/* Background Images with smooth 1-second crossfade */}
         {HERO_BANNERS.map((banner, index) => (
           <div
@@ -150,7 +150,7 @@ export default function Home() {
             <img
               src={banner.image}
               alt={banner.titleLine1}
-              className="w-full h-full object-cover object-center scale-105 transform"
+              className="w-full h-full object-cover object-center transform"
             />
             {/* Elegant luxury overlay for crisp text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
@@ -158,7 +158,7 @@ export default function Home() {
         ))}
 
         {/* Content Container (Left-aligned on mobile, compact height) */}
-        <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-12 pt-24 pb-8 sm:pt-28 sm:pb-14 md:pt-36 md:pb-24 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-12 pt-10 pb-8 sm:pt-14 sm:pb-12 md:pt-16 md:pb-16 relative z-10 w-full">
           <div className="max-w-xl text-left">
             
             {/* Eyebrow */}
