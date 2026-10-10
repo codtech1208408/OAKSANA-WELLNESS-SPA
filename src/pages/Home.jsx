@@ -31,44 +31,45 @@ import {
 const HERO_BANNERS = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2000&q=80",
-    eyebrow: "RELAX • REJUVENATE • RECONNECT",
-    titleLine1: "Your Wellness",
-    titleLine2: "Our Priority",
-    subtitle: "Experience the perfect blend of ancient healing and modern relaxation at Oaksana Wellness Spa."
+    image: "/images/banners/aroma-massage.png",
+    eyebrow: "SIGNATURE • AROMA MASSAGE",
+    titleLine1: "Aroma",
+    titleLine2: "Massage",
+    subtitle: "Gentle flowing sensory relaxation with pure botanical oils to release stress and restore balance."
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=80",
-    eyebrow: "SIGNATURE EXPERIENCES",
-    titleLine1: "Pure Sensory",
-    titleLine2: "Serenity",
-    subtitle: "Indulge in Aroma, Deep Tissue, Swedish, and authentic Thai bodywork tailored to your complete comfort."
+    image: "/images/banners/deep-tissue-massage.png",
+    eyebrow: "THERAPEUTIC • DEEP TISSUE",
+    titleLine1: "Deep Tissue",
+    titleLine2: "Massage",
+    subtitle: "Targeted therapy reaching deep muscle layers and stubborn knots for profound physical renewal."
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=2000&q=80",
-    eyebrow: "2 YEARS OF EXCELLENCE",
-    titleLine1: "Your Luxury Haven",
-    titleLine2: "In Miyapur",
-    subtitle: "Private hygienic suites, soothing warm acoustics, and quick WhatsApp booking at Sri Mani Kalyan Arcade."
+    image: "/images/banners/swedish-massage.png",
+    eyebrow: "CLASSIC • SWEDISH MASSAGE",
+    titleLine1: "Swedish",
+    titleLine2: "Massage",
+    subtitle: "Full-body circulation boosting strokes crafted for pure holistic calmness, vitality, and comfort."
+  },
+  {
+    id: 4,
+    image: "/images/banners/thai-massage.png",
+    eyebrow: "ANCIENT HEALING • THAI MASSAGE",
+    titleLine1: "Thai",
+    titleLine2: "Massage",
+    subtitle: "Ancient rhythmic energy alignment and assisted stretching to improve flexibility and vitality."
   }
 ];
 
-// 4 Signature Cards matching reference image
+// Signature Cards
 const CURATED_SPA_TREATMENTS = [
   {
     id: 'signature-massage',
     title: 'Signature Massage',
     subtitle: 'Release tension and restore balance.',
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
-  },
-  {
-    id: 'facial-rejuvenation',
-    title: 'Facial Rejuvenation',
-    subtitle: 'Reveal your natural glow and youthful skin.',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
     link: '/services'
   },
   {
@@ -151,6 +152,8 @@ export default function Home() {
               alt={banner.titleLine1}
               className="w-full h-full object-cover object-center scale-105 transform"
             />
+            {/* Elegant luxury overlay for crisp text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
           </div>
         ))}
 
@@ -285,8 +288,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 2-Column Grid on Mobile, 4-Column on Desktop (Matching Reference Image) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6">
+          {/* Responsive Grid for Curated Spa Treatments */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
             {CURATED_SPA_TREATMENTS.map((item) => (
               <div
                 key={item.id}
