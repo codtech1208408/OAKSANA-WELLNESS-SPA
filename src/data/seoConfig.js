@@ -54,6 +54,12 @@ export const SEO_CONFIG = {
     "spa near Kukatpally",
     "spa near Kondapur",
     "spa near Chandanagar",
+    "spa near Hydernagar",
+    "spa near Hafeezpet",
+    "spa near Ameenpur",
+    "spa near Nizampet",
+    "spa near Lingampally",
+    "spa near PJR Enclave",
     "couples massage Hyderabad",
     "relaxation therapy Hyderabad"
   ],

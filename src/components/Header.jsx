@@ -50,12 +50,13 @@ export default function Header() {
                 className="w-full h-full object-contain filter contrast-105 brightness-105 transform group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="hidden sm:block">
-              <span className="block font-serif text-2xl sm:text-3xl tracking-widest font-semibold text-spa-cream uppercase group-hover:text-spa-gold transition-colors leading-none">
-                Oaksana
+            <div className="flex flex-col">
+              <span className="block font-serif text-lg sm:text-2xl md:text-[26px] tracking-wider sm:tracking-widest font-semibold text-spa-cream uppercase group-hover:text-spa-gold transition-colors leading-tight">
+                Oaksana Wellness
               </span>
-              <span className="block text-[11px] sm:text-xs tracking-[0.25em] text-spa-gold uppercase font-medium mt-1">
-                Wellness Spa
+              <span className="flex items-center gap-1 text-[10px] sm:text-xs tracking-[0.2em] text-spa-gold uppercase font-medium mt-0.5">
+                <MapPin className="w-3 h-3 text-spa-gold shrink-0" />
+                <span>Miyapur Hyderabad</span>
               </span>
             </div>
           </Link>

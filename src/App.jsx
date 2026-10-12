@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AreasServed from './components/AreasServed';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
@@ -53,6 +54,9 @@ export default function App() {
 
         {/* Mobile Fixed Bottom Navigation Bar */}
         <MobileBottomNav />
+
+        {/* Areas Near Miyapur We Serve (Above Footer) */}
+        <AreasServed />
 
         {/* Luxury Footer */}
         <Footer />

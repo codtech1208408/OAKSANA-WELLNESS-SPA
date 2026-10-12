@@ -323,3 +323,13 @@ export const FAQS = [
     answer: "Upon arrival, you will be welcomed into our calm lounge. You can discuss your massage preferences and pressure level with the staff before stepping into a sanitized, private suite prepared with fresh linens and relaxing music."
   }
 ];
+
+export const NEARBY_AREAS_SERVED = [
+  { name: "Hydernagar", distance: "3–5 km" },
+  { name: "Hafeezpet", distance: "4–6 km" },
+  { name: "PJR Enclave", distance: "1–3 km" },
+  { name: "Ameenpur", distance: "4–7 km" },
+  { name: "Chandanagar", distance: "4–6 km" },
+  { name: "Lingampally", distance: "5–7 km" },
+  { name: "Nizampet", distance: "4–6 km" }
+];
