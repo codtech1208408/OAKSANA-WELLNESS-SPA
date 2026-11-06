@@ -109,24 +109,32 @@ export default function SEOHead() {
 
     // 9. Google Analytics 4 (GA4) Injection if ID is available
     const gaId = SEO_CONFIG.googleAnalyticsId || localStorage.getItem('oaksana_ga_id');
-    if (gaId && !document.getElementById('ga4-script')) {
-      const gaScript = document.createElement('script');
-      gaScript.id = 'ga4-script';
-      gaScript.async = true;
-      gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-      document.head.appendChild(gaScript);
+    if (gaId) {
+      if (!window.gtag && !document.getElementById('ga4-script')) {
+        const gaScript = document.createElement('script');
+        gaScript.id = 'ga4-script';
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+        document.head.appendChild(gaScript);
 
-      const gaInitScript = document.createElement('script');
-      gaInitScript.id = 'ga4-init';
-      gaInitScript.textContent = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${gaId}', { page_path: '${currentPath}' });
-      `;
-      document.head.appendChild(gaInitScript);
-    } else if (gaId && window.gtag) {
-      window.gtag('config', gaId, { page_path: currentPath });
+        const gaInitScript = document.createElement('script');
+        gaInitScript.id = 'ga4-init';
+        gaInitScript.textContent = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaId}', { page_path: '${currentPath}' });
+        `;
+        document.head.appendChild(gaInitScript);
+      } else if (window.gtag) {
+        window.gtag('config', gaId, { page_path: currentPath });
+      }
+    }
+
+    // 10. Google Ads Tag (AW-18523521964) SPA Route Tracking
+    const adsId = localStorage.getItem('oaksana_ads_id') || SEO_CONFIG.googleAdsId || 'AW-18523521964';
+    if (adsId && window.gtag) {
+      window.gtag('config', adsId, { page_path: currentPath });
     }
 
   }, [location.pathname]);

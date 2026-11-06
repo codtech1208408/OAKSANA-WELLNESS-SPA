@@ -33,6 +33,9 @@ export const SEO_CONFIG = {
   // Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX)
   googleAnalyticsId: import.meta.env.VITE_GA_MEASUREMENT_ID || "",
 
+  // Google Ads Tag ID (gtag.js)
+  googleAdsId: import.meta.env.VITE_GOOGLE_ADS_ID || "AW-18523521964",
+
   // High-Intent SEO Keywords for Miyapur & Hyderabad Spa Searches
   keywords: [
     "Oaksana Wellness Spa",

@@ -10,6 +10,7 @@ import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
 import SEOHead from './components/SEOHead';
+import { initGoogleAdsAutoTracking } from './utils/googleAds';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -27,6 +28,12 @@ export default function App() {
       offset: 60,
       disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     });
+
+    // Initialize Google Ads conversion tracking for WhatsApp & Phone leads
+    const cleanupAdsTracking = initGoogleAdsAutoTracking();
+    return () => {
+      cleanupAdsTracking?.();
+    };
   }, []);
 
   return (

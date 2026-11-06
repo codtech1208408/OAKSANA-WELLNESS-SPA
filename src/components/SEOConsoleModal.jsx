@@ -5,14 +5,17 @@ import { SEO_CONFIG } from '../data/seoConfig';
 export default function SEOConsoleModal({ isOpen, onClose }) {
   const [gscToken, setGscToken] = useState('');
   const [gaId, setGaId] = useState('');
+  const [adsId, setAdsId] = useState('');
   const [isCopied, setIsCopied] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
   useEffect(() => {
     const savedGsc = localStorage.getItem('oaksana_gsc_verification') || SEO_CONFIG.googleSiteVerification || '';
     const savedGa = localStorage.getItem('oaksana_ga_id') || SEO_CONFIG.googleAnalyticsId || '';
+    const savedAds = localStorage.getItem('oaksana_ads_id') || SEO_CONFIG.googleAdsId || 'AW-18523521964';
     setGscToken(savedGsc);
     setGaId(savedGa);
+    setAdsId(savedAds);
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -35,6 +38,9 @@ export default function SEOConsoleModal({ isOpen, onClose }) {
     }
     if (gaId) {
       localStorage.setItem('oaksana_ga_id', gaId.trim());
+    }
+    if (adsId) {
+      localStorage.setItem('oaksana_ads_id', adsId.trim());
     }
     setSaveSuccess(true);
     setTimeout(() => setSaveSuccess(false), 3000);
@@ -165,6 +171,19 @@ export default function SEOConsoleModal({ isOpen, onClose }) {
               value={gaId}
               onChange={(e) => setGaId(e.target.value)}
               placeholder="e.g. G-XXXXXXXXXX"
+              className="w-full px-4 py-2.5 rounded-lg bg-spa-dark border border-spa-gold/30 text-spa-cream text-sm focus:outline-none focus:border-spa-gold focus:ring-1 focus:ring-spa-gold placeholder:text-spa-cream-soft/30"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium uppercase tracking-wider text-spa-cream mb-1.5">
+              Google Ads Tag ID (gtag.js)
+            </label>
+            <input
+              type="text"
+              value={adsId}
+              onChange={(e) => setAdsId(e.target.value)}
+              placeholder="e.g. AW-18523521964"
               className="w-full px-4 py-2.5 rounded-lg bg-spa-dark border border-spa-gold/30 text-spa-cream text-sm focus:outline-none focus:border-spa-gold focus:ring-1 focus:ring-spa-gold placeholder:text-spa-cream-soft/30"
             />
           </div>

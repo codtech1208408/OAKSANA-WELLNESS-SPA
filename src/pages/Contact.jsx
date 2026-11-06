@@ -18,6 +18,7 @@ import {
   Calendar,
   CheckCircle2
 } from 'lucide-react';
+import { trackLeadConversion } from '../utils/googleAds';
 
 export default function Contact() {
   const [selectedService, setSelectedService] = useState(SERVICES[0].name);
@@ -27,6 +28,14 @@ export default function Contact() {
 
   const handleCustomWhatsAppBooking = (e) => {
     e.preventDefault();
+    
+    // Track Google Ads Lead Conversion
+    trackLeadConversion('booking_form', `Custom Booking Form - ${selectedService}`, {
+      service: selectedService,
+      preferredDay,
+      preferredTime,
+    });
+
     let message = `Hello Oaksana Wellness Spa, I would like to book an appointment.\n`;
     if (guestName.trim()) {
       message += `• Name: ${guestName.trim()}\n`;
